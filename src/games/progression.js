@@ -1,6 +1,5 @@
-#!/usr/bin/env node
-import runGame from '../index.js';
-import { getRandomInt } from '../utils/utils.js';
+import runGame from "../index.js";
+import { getRandomInt } from "../utils/utils.js";
 
 const generateProgression = (start, step, length) => {
     const progression = [];
@@ -19,12 +18,12 @@ const generateRound = () => {
     const hiddenIndex = getRandomInt(0, progressionLength - 1);
     const correctAnswer = String(progression[hiddenIndex]);
 
-    progression[hiddenIndex] = '..';
-    const question = progression.join(' ');
+    progression[hiddenIndex] = "..";
+    const question = progression.join(" ");
 
     return [question, correctAnswer];
 };
 
-const description = 'What number is missing in the progression?';
+const description = "What number is missing in the progression?";
 
-runGame(description, generateRound);
+export default () => runGame(description, generateRound);
